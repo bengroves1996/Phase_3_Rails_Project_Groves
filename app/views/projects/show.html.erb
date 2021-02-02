@@ -1,0 +1,13 @@
+<h1>Here are the projects Taskers have made for you to complete</h1>
+
+<% @project.each do |p| %>
+    <li> <a href="/projects/<%= p.id %>"><%= p.title %></a> </li>
+    
+<% end %>
+<h4><%=link_to "Make a Project", '/projects/new', method: :get %></h4>
+</ul>
+<h5><%= link_to "Return to HomePage", '/sessions/home', method: :get%></h5>
+
+
+
+

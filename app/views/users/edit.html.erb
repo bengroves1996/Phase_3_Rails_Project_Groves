@@ -1,0 +1,14 @@
+<h1>Change the switch below to set yourself to a Tasker</h1>
+
+<%= form_with model: @user do |f|%>
+    <%= f.label :Tasker %>
+    <%= f.check_box :tasker %>
+    <%= f.submit "Power Up!" %>
+<% end %> <br>
+
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%= button_to "Return to HomePage", '/sessions/home', method: :get%>
+

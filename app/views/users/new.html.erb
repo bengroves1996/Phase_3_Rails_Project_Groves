@@ -1,0 +1,17 @@
+<h1>Users#new</h1>
+
+<%= form_with model: @user, local: true do |f| %>
+    <%= f.label :username%><br>  
+    <%= f.text_field :username%><br> 
+    <%= f.label :email%><br>  
+    <%= f.text_field :email%><br>  
+    <%= f.label :password%><br>  
+    <%= f.password_field :password%><br>
+    <%= f.submit "Signup"%>      
+<% end %>
+
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+<%= button_to "Return to Welcome Page", '/', method: :get%> <br>
