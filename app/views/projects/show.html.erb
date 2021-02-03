@@ -4,10 +4,16 @@
     <li> <a href="/projects/<%= p.id %>"><%= p.title %></a> </li>
     
 <% end %>
+
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+
+
 <h4><%=link_to "Make a Project", '/projects/new', method: :get %></h4>
 </ul>
 <h5><%= link_to "Return to HomePage", '/sessions/home', method: :get%></h5>
-
 
 
 

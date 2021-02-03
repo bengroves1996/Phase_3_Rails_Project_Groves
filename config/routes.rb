@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: 'sessions#welcome'
 
+  get '/projects/high_priority', to: 'projects#high_priority', as: 'high_priority_projects'
 
   get 'sessions/home'
   get '/login', to: 'sessions#new'

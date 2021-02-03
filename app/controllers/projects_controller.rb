@@ -20,9 +20,15 @@ class ProjectsController < ApplicationController
     end
 
     def show
+
         @project = Project.all
         @projects = Project.find_by(id: params[:id])
+        
     end 
+
+    def high_priority
+        @projects = Project.high_priority.sort_by_priority
+    end
     private 
 
     def project_params
