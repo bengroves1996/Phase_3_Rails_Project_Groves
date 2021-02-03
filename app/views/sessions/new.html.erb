@@ -1,5 +1,8 @@
 <h1>Welcome Back! Login in Below</h1>
 
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
 <%= form_with(url: login_path, scope: :session, local: true) do |f| %>
     <%= f.label :Username %>
@@ -8,8 +11,8 @@
     <%= f.password_field :password, placeholder: 'Password'%><br>
     <button type="submit">Login</button>
 <%end%>
-<% if flash[:notice] %>
-<div class="notice"><%= flash[:notice] %></div>
-<% end %>
+
+
+
 <%= button_to "Signup", '/users/new?', method: :get%>
 <%= button_to "Return to Welcome Page", '/', method: :get%> <br>

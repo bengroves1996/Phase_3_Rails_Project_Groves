@@ -1,6 +1,10 @@
 <h1>Here is the home page for TellMe!</h1>
 
   <p1>You are Logged In as: <%= @user %></p1>
+  
+  <% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+  <% end %>
 
   <%= button_to "Promote to Tasker", '/users/1/edit', method: :get%>
   <%=link_to "Current Projects", '/projects/index', method: :get%>

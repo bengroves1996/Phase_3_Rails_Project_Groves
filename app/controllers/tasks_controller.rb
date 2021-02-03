@@ -5,10 +5,13 @@ class   TasksController < ApplicationController
 
     def new
         redirect_if_not_logged_in
+        redirect_if_not_tasker
         @task = Task.new
     end
 
     def create
+        redirect_if_not_logged_in
+        redirect_if_not_tasker
         @task = Task.new(task_params)
         if @task.save
             redirect_to '/projects/:id'

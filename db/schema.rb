@@ -13,7 +13,7 @@
 ActiveRecord::Schema.define(version: 2021_01_23_192301) do
 
   create_table "projects", force: :cascade do |t|
-    t.integer "priority"
+    t.string "priority"
     t.string "description"
     t.string "title"
     t.datetime "created_at", precision: 6, null: false

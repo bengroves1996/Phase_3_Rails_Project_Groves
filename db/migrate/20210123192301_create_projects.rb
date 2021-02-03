@@ -1,7 +1,7 @@
 class CreateProjects < ActiveRecord::Migration[6.1]
   def change
     create_table :projects do |t|
-      t.integer :priority
+      t.string :priority
       t.string :description
       t.string :title
 
