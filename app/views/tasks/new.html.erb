@@ -3,9 +3,13 @@
 <%= form_with model: @task, local: true do |t| %>
     <%= t.label :Objective%><br>  
     <%= t.text_area :objective, size: "60x5" %> <br> 
-    <%= t.label :Complete%><br>   
-    <%= t.text_field :complete%><br>
-    <%= t.submit "Create Project"%>      
+    <%= t.label :Completed?%>  
+    <%= t.check_box :complete %> <br> 
+    <%= t.submit "Create Project"%>  <br>    
+<% end %>
+
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
 <% end %>
       
       

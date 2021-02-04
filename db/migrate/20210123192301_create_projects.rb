@@ -4,7 +4,7 @@ class CreateProjects < ActiveRecord::Migration[6.1]
       t.string :priority
       t.string :description
       t.string :title
-
+      t.integer :user_id ##Foreign Key!
       t.timestamps
     end
   end

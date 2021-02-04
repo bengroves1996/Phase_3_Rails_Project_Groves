@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :home]
   resources :tasks 
   resources :projects
-
+  # nest task resources into projects' resources
   get '/auth/:provider/callback', to: "sessions#omniauth" ###coming back from google
 end

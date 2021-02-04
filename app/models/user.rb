@@ -1,9 +1,13 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :tasks, through: :projects
     has_many :projects
+    has_many :tasks
+    # has_many :tasks, through: :users rename macro
+    # has_many :task_project, through :task, source: :project
+    has_many :task_project, :through => :task, :source => :project
     validates :email, :username, presence: true
     validates :username, uniqueness: true
+    
 
     def self.create_from_omniauth(auth)
         self.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|

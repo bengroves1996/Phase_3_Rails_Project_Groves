@@ -11,13 +11,17 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        @project = Project.new(project_params)
+        
+        @project = current_user.projects.new(project_params)
+        
         if @project.save
             redirect_to '/projects/home'
         else
+            flash[:notice] = "Project failed to save. Ensure all fields are filled."
             render :new
         end
     end
+
 
     def show
         @project = Project.all
@@ -26,14 +30,12 @@ class ProjectsController < ApplicationController
     end 
 
     def high_priority
-        # Project.all.where(priority: :'5')
-         
-        @high_priority_projects = Project.high_priority[0].title
+        @high_priority_projects = Project.high_priority
     end
     private 
 
     def project_params
-        params.require(:project).permit(:priority, :description, :title)
+        params.require(:project).permit(:priority, :description, :title, :user_id)
     end
 
 end

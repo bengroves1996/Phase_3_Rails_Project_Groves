@@ -12,12 +12,17 @@ class   TasksController < ApplicationController
     def create
         redirect_if_not_logged_in
         redirect_if_not_tasker
-        @task = Task.new(task_params)
+        #@project = current_user.projects.new(project_params)
+        @task = current_user.tasks.new(task_params) ## currently looks for only user:id needs to find project:id
+       # @task = Task.new(task_params)
+       
         if @task.save
+            flash[:notice] = "Task Created Successfully!"
             redirect_to '/projects/:id'
         else
             render :new
         end
+        byebug
     end
 
     private 

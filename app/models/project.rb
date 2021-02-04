@@ -1,6 +1,10 @@
 class Project < ApplicationRecord
     has_many :tasks 
-    has_many :users, through: :tasks
+    belongs_to :user
+    has_many :task_project, :through => :task, :source => :user
+
+    ##Rename macro same one from user
+    #has_many :task_project, through :task, source user
     validates :description, :title, :priority, presence: true
 
     def self.high_priority

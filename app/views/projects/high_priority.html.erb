@@ -1,3 +1,10 @@
 <h1>These Projects are of high priority </h1>
 
-<li><%= @high_priority_projects %></li>
+<li>
+<% @high_priority_projects.each do |p| %>
+    <li> <a href="/projects/<%= p.id %>"><%= p.title %></a> </li>
+    
+<% end %>
+</li>
+
+<%= button_to "Return to Project Homepage", '/projects/index', method: :get%>
