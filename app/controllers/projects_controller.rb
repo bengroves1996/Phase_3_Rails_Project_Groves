@@ -1,41 +1,39 @@
 class ProjectsController < ApplicationController
 
     def index
-        redirect_to '/projects/index'
+        @projects = Project.all
     end 
 
-    def new
+    def new  
         redirect_if_not_logged_in
         redirect_if_not_tasker
         @project = Project.new
     end
 
     def create
-        
+        byebug
         @project = current_user.projects.new(project_params)
         
         if @project.save
-            redirect_to '/projects/home'
+            redirect_to '/projects'
         else
             flash[:notice] = "Project failed to save. Ensure all fields are filled."
             render :new
         end
     end
 
-
     def show
-        @project = Project.all
-        @projects = Project.find_by(id: params[:id])
-        
+        @project = Project.find_by(id: params[:id])
     end 
 
     def high_priority
         @high_priority_projects = Project.high_priority
     end
+    
     private 
 
     def project_params
-        params.require(:project).permit(:priority, :description, :title, :user_id)
+        params.require(:project).permit(:priority, :description, :title)
     end
 
 end

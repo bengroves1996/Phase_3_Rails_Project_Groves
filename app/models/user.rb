@@ -2,8 +2,7 @@ class User < ApplicationRecord
     has_secure_password
     has_many :projects
     has_many :tasks
-    # has_many :tasks, through: :users rename macro
-    # has_many :task_project, through :task, source: :project
+    
     has_many :task_project, :through => :task, :source => :project
     validates :email, :username, presence: true
     validates :username, uniqueness: true

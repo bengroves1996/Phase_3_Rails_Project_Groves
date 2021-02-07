@@ -21,4 +21,16 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+* <h3>What task should created for <%= Project.all[0].title %>?</h3>
+
+<%= form_with model: @task, local: true do |t| %>
+    <%= t.label :Objective%><br>  
+    <%= t.text_area :objective, size: "60x5" %> <br> 
+    <%= t.label :Completed?%>  
+    <%= t.check_box :complete %> <br> 
+    <%= t.submit "Create Project"%>  <br>    
+<% end %>
+
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
