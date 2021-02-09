@@ -8,9 +8,9 @@ Rails.application.routes.draw do
   get '/welcome', to: 'sessions#welcome'
   get '/users/tasker'
 
-  get '/projects/index', to: 'projects#index', as: 'projects'
+  # get '/projects/index', to: 'projects#index', as: 'projects'
   
-  post '/projects/create', to: 'projects#create'
+
 
   delete 'logout'  => 'sessions#destroy'
   resources :users, only: [:new, :create, :tasker, :edit, :update]

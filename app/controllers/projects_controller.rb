@@ -11,7 +11,6 @@ class ProjectsController < ApplicationController
     end
 
     def create
-        byebug
         @project = current_user.projects.new(project_params)
         
         if @project.save

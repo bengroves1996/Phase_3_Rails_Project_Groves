@@ -1,14 +1,6 @@
 <h1>Here Taskers make new Projects to complete!</h1>
 
-
-<% if flash[:notice] %>
-<div class="notice"><%= flash[:notice] %></div>
-<% end %>
-
-
-<%= button_to "Return to Project Homepage", '/projects/index', method: :get%>
-
-<%= form_with url: "/projects/create", method: :post do |f| %>
+<%= form_with model: @project do |f| %>
         <%= f.label :Title%><br>  
         <%= f.text_field :title%><br> 
         <%= f.label :Description%><br>  
@@ -17,3 +9,12 @@
         <%= f.text_field :priority%><br>
         <%= f.submit "Create Project"%> 
 <% end %>
+    
+
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
+
+
+<%= button_to "Return to Project Homepage", '/projects/index', method: :get%>
+

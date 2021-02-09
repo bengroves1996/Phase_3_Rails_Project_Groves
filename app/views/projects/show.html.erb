@@ -1,7 +1,9 @@
 <h1> <%= @project.title %> Priority <%= @project.priority %></h1>
 
-<h2> <%= @project.description %> </h2>
+<h3> <%= @project.description %> </h3>
+<%= @project.id %> <br>
+<a href= "/projects/<%= @project.id %>/tasks/new"> "Make Tasks for this project" </a>
 
-<%= button_to "To make tasks for this project", '/projects/1/tasks/new', method: :get%>
+
 <%= button_to "Return to Project Homepage", '/projects/index', method: :get%> </br>
 
