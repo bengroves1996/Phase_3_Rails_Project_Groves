@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
 
     def create
         @project = current_user.projects.new(project_params)
+
         if @project.save
             redirect_to '/projects'
         else
@@ -24,6 +25,7 @@ class ProjectsController < ApplicationController
 
     def show
         @project = Project.find_by(id: params[:id])
+
     end 
 
     def high_priority

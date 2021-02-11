@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :projects
     has_many :tasks
     
-    has_many :task_project, :through => :tasks, :source => :project
+    has_many :task_users, :through => :tasks, :source => :project
     validates :email, :username, presence: true
     validates :username, uniqueness: true
     

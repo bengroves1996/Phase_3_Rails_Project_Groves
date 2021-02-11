@@ -14,8 +14,8 @@ Rails.application.routes.draw do
 
   resources :users, only: [:new, :create, :tasker, :edit, :update]
   resources :sessions, only: [:new, :create, :home]
-
-  resources :tasks, only: [:new, :create, :index]
+  resources :tasks
+  
   resources :projects do
     resources :tasks, only: [:new, :create, :index] # nested task resources into projects' resources
   end
