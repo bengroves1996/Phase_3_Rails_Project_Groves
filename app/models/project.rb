@@ -1,7 +1,7 @@
 class Project < ApplicationRecord
     has_many :tasks 
     belongs_to :user
-    has_many :task_project, :through => :task, :source => :user
+    has_many :task_project, :through => :tasks, :source => :user
     validates :description, :title, :priority, presence: true
     accepts_nested_attributes_for :tasks 
 

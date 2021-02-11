@@ -2,12 +2,14 @@ class ProjectsController < ApplicationController
 
     def index
         @projects = Project.all
+        
     end 
 
     def new  
         redirect_if_not_logged_in
         redirect_if_not_tasker
         @project = Project.new
+       
     end
 
     def create

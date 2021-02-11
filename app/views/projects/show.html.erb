@@ -3,6 +3,9 @@
 <h3> <%= @project.description %> </h3>
 <a href= "/projects/<%= @project.id %>/tasks/new"> "Make Tasks for this project" </a>
 
+<% if flash[:notice] %>
+<div class="notice"><%= flash[:notice] %></div>
+<% end %>
 
 <%= button_to "Return to Project Homepage", '/projects', method: :get%> </br>
 
