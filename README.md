@@ -53,6 +53,9 @@ Welcome to Tell_Me README file. Here you'll find the both the specs, and how to 
     Dropped database 'db/development.sqlite3'
     Database 'db/test.sqlite3' does not exist 
 
+* Closing the server 
+    To the close the server enter 'ctrl + c' together. This will close the server, but not delete any tables within the database.
+
 * System dependencies
 
 * Configuration
