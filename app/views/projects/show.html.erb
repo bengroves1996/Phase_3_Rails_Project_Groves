@@ -1,7 +1,11 @@
 <h1> <%= @project.title %> </h1>
 <h2> Priority <%= @project.priority %> </h2s>
 <h3> <%= @project.description %> </h3>
-<a href= "/projects/<%= @project.id %>/tasks/new"> "Make Tasks for this project" </a>
+<a href= "/projects/<%= @project.id %>/tasks/new"> Make Tasks for this project! </a>
+
+<% Task.all.each do |t| %>
+    <li> <%= t.objective %> </li>
+<% end %>
 
 <% if flash[:notice] %>
 <div class="notice"><%= flash[:notice] %></div>
